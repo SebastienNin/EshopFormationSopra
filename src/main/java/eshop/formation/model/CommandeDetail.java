@@ -1,10 +1,24 @@
 package eshop.formation.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Transient;
+import jakarta.persistence.Version;
+
+@Entity
 public class CommandeDetail {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Version
+	private int version;
 	private int quantite;
 	private Double prix;
+	@Transient
 	private Commande commande;
+	@Transient
 	private Produit produit;
 
 	public Long getId() {
@@ -45,6 +59,15 @@ public class CommandeDetail {
 
 	public void setProduit(Produit produit) {
 		this.produit = produit;
+	}
+	
+
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
 	}
 
 	public CommandeDetail() {

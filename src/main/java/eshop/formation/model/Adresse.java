@@ -8,13 +8,15 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Transient;
+import jakarta.persistence.Version;
 
 @Entity
 public class Adresse {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+	@Version
+	private int version;
 	private String rue;
 
 	private String ville;
@@ -72,4 +74,13 @@ public class Adresse {
 	public void setFournisseurs(List<Fournisseur> fournisseurs) {
 		this.fournisseurs = fournisseurs;
 	}
+
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
+	}
+	
 }
