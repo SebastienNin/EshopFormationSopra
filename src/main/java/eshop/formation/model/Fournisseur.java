@@ -15,6 +15,11 @@ public class Fournisseur extends Personne {
 	@ManyToMany
 	private List<Adresse> adresses = new ArrayList<>();
 
+	public Fournisseur(Long id, int version, String nom, String adresse, String responsable) {
+		super(nom, adresse);
+		this.responsable = responsable;
+	}
+
 	public String getResponsable() {
 		return responsable;
 	}

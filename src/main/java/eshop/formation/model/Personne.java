@@ -21,6 +21,15 @@ public abstract class Personne {
 	protected String nom;
 	protected String adresse;
 
+	public Personne() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Personne(String nom, String adresse) {
+		this.nom = nom;
+		this.adresse = adresse;
+	}
+
 	public Long getId() {
 		return id;
 	}

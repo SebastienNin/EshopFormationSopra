@@ -11,10 +11,9 @@ public class PopulateTest {
 
 	@Autowired
 	IDAOAdresse daoAdresse;
-
-	public void run(String... args) {
+	
+	public void run(String ...args) {
 		Optional<Adresse> opt = daoAdresse.findById(1);
-		
 	}
 
 //	@Test

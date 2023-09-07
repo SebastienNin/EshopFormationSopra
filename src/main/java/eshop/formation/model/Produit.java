@@ -34,6 +34,18 @@ public class Produit {
 	@ManyToMany
 	private List<Reparateur> reparateurs = new ArrayList<>();
 
+	public Produit(Long id, int version, String libelle, Double prixAchat, Double prixVente, String reference,
+			String modele, int stock, Fournisseur fournisseur) {
+		super();
+		this.libelle = libelle;
+		this.prixAchat = prixAchat;
+		this.prixVente = prixVente;
+		this.reference = reference;
+		this.modele = modele;
+		this.stock = stock;
+		this.fournisseur = fournisseur;
+	}
+
 	public Long getId() {
 		return id;
 	}

@@ -13,6 +13,11 @@ public class Client extends Personne {
 	@OneToMany
 	private List<Adresse> adresses;
 
+	public Client(Long id, int version, String nom, String adresse, String prenom) {
+		super(nom, adresse);
+		this.prenom = prenom;
+	}
+
 	public String getPrenom() {
 		return prenom;
 	}

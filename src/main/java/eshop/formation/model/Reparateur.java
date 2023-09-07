@@ -23,6 +23,17 @@ public class Reparateur {
 	@ManyToMany
 	private List<Produit> produitsReparables = new ArrayList<>();
 
+	public Reparateur() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Reparateur(String nom, String telephone, String description) {
+		super();
+		this.nom = nom;
+		this.telephone = telephone;
+		this.description = description;
+	}
+
 	public Long getId() {
 		return id;
 	}
