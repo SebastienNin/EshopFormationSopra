@@ -9,11 +9,11 @@ import eshop.formation.model.Adresse;
 
 public class PopulateTest {
 
-//	@Autowired
-//	IDAOAdresse daoAdresse;
+	@Autowired
+	IDAOAdresse daoAdresse;
 	
 	public void run(String ...args) {
-//		Optional<Adresse> opt = daoAdresse.findById(1);
+		Optional<Adresse> opt = daoAdresse.findById(1);
 	}
 	
 //	@Test
