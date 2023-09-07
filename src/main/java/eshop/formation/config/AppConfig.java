@@ -5,6 +5,7 @@ import java.util.Properties;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
@@ -19,6 +20,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import jakarta.persistence.EntityManagerFactory;
 
 @Configuration
+@ComponentScan("eshop.formation.model")
 @EnableTransactionManagement
 @PropertySource("classpath:infos.properties")
 @EnableJpaRepositories("eshop.formation.dao")
@@ -44,7 +46,7 @@ public class AppConfig {
 			LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
 			JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 			emf.setDataSource(dataSource);
-			emf.setPackagesToScan("quest.model");
+			emf.setPackagesToScan("eshop.formation.model");
 			emf.setJpaVendorAdapter(vendorAdapter);
 			emf.setJpaProperties(this.hibernateProperties());
 			return emf;

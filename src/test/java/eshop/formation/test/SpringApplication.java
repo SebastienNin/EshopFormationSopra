@@ -3,7 +3,6 @@ package eshop.formation.test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import eshop.formation.config.AppConfig;
-import junit.framework.Test;
 
 public class SpringApplication {
 	
