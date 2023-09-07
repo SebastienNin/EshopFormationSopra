@@ -4,12 +4,25 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Transient;
+import jakarta.persistence.Version;
+@Entity
 public class Commande {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Version
+	private int version;
 	private Date date;
 	private Double prixTotal;
 	private EtatCommande etat;
+	@Transient
 	private Client client;
+	@Transient
 	private List<CommandeDetail> details = new ArrayList<>();
 
 	public Long getId() {
@@ -59,4 +72,13 @@ public class Commande {
 	public void setDetails(List<CommandeDetail> details) {
 		this.details = details;
 	}
+
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
+	}
+	
 }
