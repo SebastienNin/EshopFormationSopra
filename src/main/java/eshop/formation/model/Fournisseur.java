@@ -3,15 +3,20 @@ package eshop.formation.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 
 @Entity
 public class Fournisseur extends Personne {
+	@JsonView(Views.Common.class)
 	private String responsable;
 	@OneToMany(mappedBy="fournisseur")
+	@JsonView(Views.PersonneWithProduits.class)
 	private List<Produit> produits = new ArrayList<>();
+	@JsonView(Views.PersonneWithAdresses.class)
 	@ManyToMany(mappedBy="fournisseurs")
 	private List<Adresse> adresses = new ArrayList<>();
 

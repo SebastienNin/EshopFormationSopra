@@ -2,6 +2,8 @@ package eshop.formation.model;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,17 +17,24 @@ import jakarta.persistence.Version;
 public class Commentaire {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(Views.Common.class)
 	private Long id;
 	@Version
+	@JsonView(Views.Common.class)
 	private int version;
+	@JsonView(Views.Common.class)
 	private Date date = new Date();
+	@JsonView(Views.Common.class)
 	private int note = 0;
+	@JsonView(Views.Common.class)
 	private String commentaire;
 	@ManyToOne
 	@JoinColumn(name="produit")
+	@JsonView(Views.CommentaireWithProduit.class)
 	private Produit produit;
 	@OneToOne
 	@JoinColumn(name="client")
+	@JsonView(Views.CommentaireWithClient.class)
 	private Client client;
 
 	public Commentaire() {}

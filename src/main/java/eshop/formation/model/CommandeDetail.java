@@ -1,5 +1,7 @@
 package eshop.formation.model;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,16 +14,22 @@ import jakarta.persistence.Version;
 public class CommandeDetail {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(Views.Common.class)
 	private Long id;
 	@Version
+	@JsonView(Views.Common.class)
 	private int version;
+	@JsonView(Views.Common.class)
 	private int quantite;
+	@JsonView(Views.Common.class)
 	private Double prix;
 	@ManyToOne
 	@JoinColumn(name="details")
+	@JsonView(Views.CommandeDetailWithCommande.class)
 	private Commande commande;
 	@ManyToOne
 	@JoinColumn(name="produit")
+	@JsonView(Views.CommandeDetailWithProduit.class)
 	private Produit produit;
 
 	public Long getId() {

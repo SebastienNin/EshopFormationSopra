@@ -3,6 +3,8 @@ package eshop.formation.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,18 +18,23 @@ import jakarta.persistence.Version;
 public class Adresse {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(Views.Common.class)
 	private Long id;
 	@Version
+	@JsonView(Views.Common.class)
 	private int version;
+	@JsonView(Views.Common.class)
 	private String rue;
-
+	@JsonView(Views.Common.class)
 	private String ville;
-
+	@JsonView(Views.Common.class)
 	private String codePostal;
 	@ManyToOne
+	@JsonView(Views.AdresseWithPersonne.class)
 	@JoinColumn(name="client")
 	private Client client;
 	@ManyToMany
+	@JsonView(Views.AdresseWithPersonne.class)
 	private List<Fournisseur> fournisseurs = new ArrayList<>();
 
 	public Adresse() {}

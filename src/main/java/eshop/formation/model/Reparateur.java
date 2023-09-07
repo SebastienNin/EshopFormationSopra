@@ -3,6 +3,8 @@ package eshop.formation.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,14 +17,20 @@ import jakarta.persistence.Version;
 public class Reparateur {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(Views.Common.class)
 	private Long id;
 	@Version
+	@JsonView(Views.Common.class)
 	private int version;
+	@JsonView(Views.Common.class)
 	private String nom;
+	@JsonView(Views.Common.class)
 	private String telephone;
+	@JsonView(Views.Common.class)
 	private String description;
 	@ManyToMany
 	@JoinColumn(name="reparateurs")
+	@JsonView(Views.ReparateurWithProduits.class)
 	private List<Produit> produitsReparables = new ArrayList<>();
 
 	public Reparateur() {
