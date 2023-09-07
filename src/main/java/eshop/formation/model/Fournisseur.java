@@ -10,12 +10,15 @@ import jakarta.persistence.OneToMany;
 @Entity
 public class Fournisseur extends Personne {
 	private String responsable;
-	@OneToMany
+	@OneToMany(mappedBy="fournisseur")
 	private List<Produit> produits = new ArrayList<>();
-	@ManyToMany
+	@ManyToMany(mappedBy="fournisseurs")
 	private List<Adresse> adresses = new ArrayList<>();
 
-	public Fournisseur(Long id, int version, String nom, String adresse, String responsable) {
+	public Fournisseur() {
+	}
+	
+	public Fournisseur(String nom, String adresse, String responsable) {
 		super(nom, adresse);
 		this.responsable = responsable;
 	}

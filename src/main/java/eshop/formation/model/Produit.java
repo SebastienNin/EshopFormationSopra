@@ -27,14 +27,14 @@ public class Produit {
 	private int stock;
 	@ManyToOne
 	private Fournisseur fournisseur;
-	@OneToMany
+	@OneToMany(mappedBy="produit")
 	private List<CommandeDetail> details = new ArrayList<>();
-	@OneToMany
+	@OneToMany(mappedBy="produit")
 	private List<Commentaire> commentaires = new ArrayList<>();
-	@ManyToMany
+	@ManyToMany(mappedBy="produitsReparables")
 	private List<Reparateur> reparateurs = new ArrayList<>();
 
-	public Produit(Long id, int version, String libelle, Double prixAchat, Double prixVente, String reference,
+	public Produit(String libelle, Double prixAchat, Double prixVente, String reference,
 			String modele, int stock, Fournisseur fournisseur) {
 		super();
 		this.libelle = libelle;

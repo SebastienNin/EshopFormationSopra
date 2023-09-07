@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Version;
@@ -24,13 +25,14 @@ public class Adresse {
 
 	private String codePostal;
 	@ManyToOne
+	@JoinColumn(name="client")
 	private Client client;
 	@ManyToMany
 	private List<Fournisseur> fournisseurs = new ArrayList<>();
 
 	public Adresse() {}
 
-	public Adresse(int version, String rue, String ville, String codePostal, Client client) {
+	public Adresse(String rue, String ville, String codePostal, Client client) {
 		this.rue = rue;
 		this.ville = ville;
 		this.codePostal = codePostal;

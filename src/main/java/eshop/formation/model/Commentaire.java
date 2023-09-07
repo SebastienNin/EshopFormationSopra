@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Version;
@@ -21,8 +22,10 @@ public class Commentaire {
 	private int note = 0;
 	private String commentaire;
 	@ManyToOne
+	@JoinColumn(name="produit")
 	private Produit produit;
 	@OneToOne
+	@JoinColumn(name="client")
 	private Client client;
 
 	public Commentaire() {}

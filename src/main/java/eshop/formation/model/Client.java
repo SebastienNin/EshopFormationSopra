@@ -8,12 +8,15 @@ import jakarta.persistence.OneToMany;
 @Entity
 public class Client extends Personne {
 	private String prenom;
-	@OneToMany
+	@OneToMany(mappedBy = "client")
 	private List<Commande> commandes = new ArrayList<>();
-	@OneToMany
+	@OneToMany(mappedBy = "client")
 	private List<Adresse> adresses;
+	
+	public Client() {
+	}
 
-	public Client(Long id, int version, String nom, String adresse, String prenom) {
+	public Client(String nom, String adresse, String prenom) {
 		super(nom, adresse);
 		this.prenom = prenom;
 	}
