@@ -3,9 +3,14 @@ package eshop.formation.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Transient;
+@Entity
 public class Client extends Personne {
 	private String prenom;
+	@Transient
 	private List<Commande> commandes = new ArrayList<>();
+	@Transient
 	private List<Adresse> adresses;
 
 	public String getPrenom() {

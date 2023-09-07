@@ -3,17 +3,26 @@ package eshop.formation.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Adresse {
-	private Long id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Transient;
 
+@Entity
+public class Adresse {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
 	private String rue;
 
 	private String ville;
 
 	private String codePostal;
-
+	@Transient
 	private Client client;
-
+	@Transient
 	private List<Fournisseur> fournisseurs = new ArrayList<>();
 
 	public Long getId() {
