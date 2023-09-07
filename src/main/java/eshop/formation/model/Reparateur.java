@@ -3,11 +3,24 @@ package eshop.formation.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Transient;
+import jakarta.persistence.Version;
+
+@Entity
 public class Reparateur {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Version
+	private int version;
 	private String nom;
 	private String telephone;
 	private String description;
+	@Transient
 	private List<Produit> produitsReparables = new ArrayList<>();
 
 	public Long getId() {
@@ -49,4 +62,13 @@ public class Reparateur {
 	public void setProduitsReparables(List<Produit> produitsReparables) {
 		this.produitsReparables = produitsReparables;
 	}
+
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
+	}
+	
 }
