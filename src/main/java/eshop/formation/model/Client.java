@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.Transient;
+import jakarta.persistence.OneToMany;
 @Entity
 public class Client extends Personne {
 	private String prenom;
-	@Transient
+	@OneToMany
 	private List<Commande> commandes = new ArrayList<>();
-	@Transient
+	@OneToMany
 	private List<Adresse> adresses;
 
 	public String getPrenom() {

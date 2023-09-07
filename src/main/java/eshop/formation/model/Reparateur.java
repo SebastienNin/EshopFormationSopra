@@ -7,7 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Transient;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Version;
 
 @Entity
@@ -20,7 +20,7 @@ public class Reparateur {
 	private String nom;
 	private String telephone;
 	private String description;
-	@Transient
+	@ManyToMany
 	private List<Produit> produitsReparables = new ArrayList<>();
 
 	public Long getId() {

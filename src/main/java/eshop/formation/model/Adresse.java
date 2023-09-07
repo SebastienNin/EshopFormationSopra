@@ -7,7 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Transient;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Version;
 
 @Entity
@@ -22,9 +23,9 @@ public class Adresse {
 	private String ville;
 
 	private String codePostal;
-	@Transient
+	@ManyToOne
 	private Client client;
-	@Transient
+	@ManyToMany
 	private List<Fournisseur> fournisseurs = new ArrayList<>();
 
 	public Long getId() {

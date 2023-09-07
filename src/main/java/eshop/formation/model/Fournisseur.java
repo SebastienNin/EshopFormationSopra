@@ -4,14 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.Transient;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Fournisseur extends Personne {
 	private String responsable;
-	@Transient
+	@OneToMany
 	private List<Produit> produits = new ArrayList<>();
-	@Transient
+	@ManyToMany
 	private List<Adresse> adresses = new ArrayList<>();
 
 	public String getResponsable() {

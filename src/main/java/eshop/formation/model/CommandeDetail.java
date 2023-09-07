@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Transient;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Version;
 
 @Entity
@@ -16,9 +16,9 @@ public class CommandeDetail {
 	private int version;
 	private int quantite;
 	private Double prix;
-	@Transient
+	@ManyToOne
 	private Commande commande;
-	@Transient
+	@ManyToOne
 	private Produit produit;
 
 	public Long getId() {

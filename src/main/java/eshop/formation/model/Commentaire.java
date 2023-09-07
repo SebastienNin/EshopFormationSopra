@@ -6,7 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Transient;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Version;
 
 @Entity
@@ -19,9 +20,9 @@ public class Commentaire {
 	private Date date = new Date();
 	private int note = 0;
 	private String commentaire;
-	@Transient
+	@ManyToOne
 	private Produit produit;
-	@Transient
+	@OneToOne
 	private Client client;
 
 	public Long getId() {

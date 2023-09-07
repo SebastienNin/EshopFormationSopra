@@ -7,7 +7,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Transient;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Version;
 
 @Entity
@@ -23,13 +25,13 @@ public class Produit {
 	private String reference;
 	private String modele;
 	private int stock;
-	@Transient
+	@ManyToOne
 	private Fournisseur fournisseur;
-	@Transient
+	@OneToMany
 	private List<CommandeDetail> details = new ArrayList<>();
-	@Transient
+	@OneToMany
 	private List<Commentaire> commentaires = new ArrayList<>();
-	@Transient
+	@ManyToMany
 	private List<Reparateur> reparateurs = new ArrayList<>();
 
 	public Long getId() {

@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Transient;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Version;
 
 @Entity
@@ -20,10 +22,11 @@ public class Commande {
 	private int version;
 	private Date date;
 	private Double prixTotal;
+	@Column(columnDefinition = "ENUM('ENCOURS', 'TERMINEE', 'ETAT3', 'ETAT4', 'ETAT5','ETAT6')")
 	private EtatCommande etat;
-	@Transient
+	@ManyToOne
 	private Client client;
-	@Transient
+	@OneToMany
 	private List<CommandeDetail> details = new ArrayList<>();
 
 	public Long getId() {
