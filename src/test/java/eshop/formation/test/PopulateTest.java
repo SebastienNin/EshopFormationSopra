@@ -9,13 +9,14 @@ import eshop.formation.model.Adresse;
 
 public class PopulateTest {
 
-//	@Autowired
-//	IDAOAdresse daoAdresse;
-	
-	public void run(String ...args) {
-//		Optional<Adresse> opt = daoAdresse.findById(1);
+	@Autowired
+	IDAOAdresse daoAdresse;
+
+	public void run(String... args) {
+		Optional<Adresse> opt = daoAdresse.findById(1);
+		
 	}
-	
+
 //	@Test
 //	public void populate() {
 //		

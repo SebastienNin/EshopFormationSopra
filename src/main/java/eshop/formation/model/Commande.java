@@ -29,6 +29,15 @@ public class Commande {
 	@OneToMany
 	private List<CommandeDetail> details = new ArrayList<>();
 
+	public Commande() {}
+
+	public Commande(int version, Date date, Double prixTotal, EtatCommande etat, Client client) {
+		this.date = date;
+		this.prixTotal = prixTotal;
+		this.etat = etat;
+		this.client = client;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -84,5 +93,5 @@ public class Commande {
 	public void setVersion(int version) {
 		this.version = version;
 	}
-	
+
 }

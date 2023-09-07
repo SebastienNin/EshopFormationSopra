@@ -28,6 +28,15 @@ public class Adresse {
 	@ManyToMany
 	private List<Fournisseur> fournisseurs = new ArrayList<>();
 
+	public Adresse() {}
+
+	public Adresse(int version, String rue, String ville, String codePostal, Client client) {
+		this.rue = rue;
+		this.ville = ville;
+		this.codePostal = codePostal;
+		this.client = client;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -83,5 +92,5 @@ public class Adresse {
 	public void setVersion(int version) {
 		this.version = version;
 	}
-	
+
 }

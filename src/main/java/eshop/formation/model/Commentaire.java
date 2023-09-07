@@ -25,6 +25,16 @@ public class Commentaire {
 	@OneToOne
 	private Client client;
 
+	public Commentaire() {}
+
+	public Commentaire(Date date, int note, String commentaire, Produit produit, Client client) {
+		this.date = date;
+		this.note = note;
+		this.commentaire = commentaire;
+		this.produit = produit;
+		this.client = client;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -80,5 +90,5 @@ public class Commentaire {
 	public void setVersion(int version) {
 		this.version = version;
 	}
-	
+
 }
