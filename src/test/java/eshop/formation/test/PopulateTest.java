@@ -2,7 +2,6 @@ package eshop.formation.test;
 
 import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import eshop.formation.dao.IDAOAdresse;
 import eshop.formation.dao.IDAOCommande;
 import eshop.formation.dao.IDAOCommandeDetail;
+import eshop.formation.dao.IDAOCommentaire;
 import eshop.formation.dao.IDAOFournisseur;
 import eshop.formation.dao.IDAOPersonne;
 import eshop.formation.dao.IDAOProduit;
@@ -31,6 +31,8 @@ public class PopulateTest {
 	@Autowired
 	IDAOCommande daoCommande;
 	@Autowired
+	IDAOCommentaire daoCommentaire;
+	@Autowired
 	IDAOCommandeDetail daoCommandeDetail;
 	@Autowired
 	IDAOFournisseur daoFournisseur;
@@ -50,8 +52,8 @@ public class PopulateTest {
 		Adresse adresse1 = new Adresse("8 rue de la paix", "Paris", "75001", client1);
 		Adresse adresse2 = new Adresse("9 rue de la paix", "Paris", "75001", client2);
 
-		Commande commande1 = new Commande(Date.valueOf("2023-09-07"), 75.00, EtatCommande.valueOf("ENCOURS"), client1);
-		Commande commande2 = new Commande(Date.valueOf("2023-08-07"), 70.50, EtatCommande.valueOf("TERMINEE"), client2);
+		Commande commande1 = new Commande(Date.valueOf("2023-09-07"), 75.00, EtatCommande.ENCOURS, client1);
+		Commande commande2 = new Commande(Date.valueOf("2023-08-07"), 70.50, EtatCommande.TERMINEE, client2);
 
 		Fournisseur fournisseur1 = new Fournisseur("Abid", "Jardin de Jordan", "Eric");
 
@@ -75,37 +77,74 @@ public class PopulateTest {
 		daoAdresse.save(adresse1);
 		daoAdresse.save(adresse2);
 		
+		daoCommande.save(commande1);
+		daoCommande.save(commande2);
+		
+		daoFournisseur.save(fournisseur1);
+		
+		daoProduit.save(produit1);
+		daoProduit.save(produit2);
+		
+		daoCommandeDetail.save(detail1);
+		daoCommandeDetail.save(detail2);
+		
+		daoCommentaire.save(commentaire1);
+		daoCommentaire.save(commentaire2);
+		
+		daoReparateur.save(reparateur1);
+		
 		// Set des listes
-		adresse1.getFournisseurs().add(fournisseur1);
-		adresse2.getFournisseurs().add(fournisseur1);
+		fournisseur1.setAdresse("Abid@gmail.com");
 		
-		commande1.getDetails().add(detail1);
-		commande2.getDetails().add(detail2);
+		detail1.setCommande(commande1);
+		detail2.setCommande(commande2);
 		
-		client2.getCommandes().add(commande2);
-		client1.getCommandes().add(commande1);
+		commande2.setClient(client2);
+		commande1.setClient(client1);
 		
-		List<Adresse> listAdresse1 = new ArrayList();
-		Collections.addAll(listAdresse1, adresse1, adresse2);
+		adresse1.setClient(client1);
+		adresse2.setClient(client2);
 		
-		client1.setAdresses(listAdresse1);
-		client2.setAdresses(listAdresse1);
-		
-		Collections.addAll(fournisseur1.getProduits(), produit1, produit2);
-		Collections.addAll(fournisseur1.getAdresses(), adresse1, adresse2);
-		
-		produit1.getDetails().add(detail1);
-		produit2.getDetails().add(detail2);
-		
-		produit1.getCommentaires().add(commentaire1);
-		produit2.getCommentaires().add(commentaire2);
-		
-		produit1.getReparateurs().add(reparateur1);
-		produit2.getReparateurs().add(reparateur1);
-		
-		Collections.addAll(reparateur1.getProduitsReparables(), produit1, produit2);
-		
+		produit1.setFournisseur(fournisseur1);
+		produit2.setFournisseur(fournisseur1);
 
+		List<Fournisseur> fournisseurs = new ArrayList();
+		fournisseurs.add(fournisseur1);
+		adresse1.setFournisseurs(fournisseurs);
+		adresse2.setFournisseurs(fournisseurs);
+		
+		detail1.setProduit(produit1);
+		detail2.setProduit(produit2);
+		
+		commentaire1.setProduit(produit1);
+		commentaire2.setProduit(produit2);
+		
+		List<Produit> produits = new ArrayList();
+		produits.add(produit1);
+		produits.add(produit2);
+		reparateur1.setProduitsReparables(produits);
+		
+		daoPersonne.save(client1);
+		daoPersonne.save(client2);
+		
+		daoAdresse.save(adresse1);
+		daoAdresse.save(adresse2);
+		
+		daoCommande.save(commande1);
+		daoCommande.save(commande2);
+		
+		daoFournisseur.save(fournisseur1);
+		
+		daoProduit.save(produit1);
+		daoProduit.save(produit2);
+		
+		daoCommandeDetail.save(detail1);
+		daoCommandeDetail.save(detail2);
+		
+		daoCommentaire.save(commentaire1);
+		daoCommentaire.save(commentaire2);
+		
+		daoReparateur.save(reparateur1);
 		
 		}
 
