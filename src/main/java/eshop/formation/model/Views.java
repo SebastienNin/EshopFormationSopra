@@ -63,6 +63,9 @@ public interface Views {
 
 	public interface ProduitWithReparateurs extends Common {
 	}
+	
+	public interface Reparateur extends Common {
+	}
 
 	public interface ReparateurWithProduits extends Common {
 	}
