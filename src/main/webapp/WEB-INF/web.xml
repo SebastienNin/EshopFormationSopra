@@ -17,7 +17,7 @@
 
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>quest.config.WebConfig</param-value>
+			<param-value>eshop.formation.config.WebConfig</param-value>
 		</init-param>
 
 		<load-on-startup>1</load-on-startup>
