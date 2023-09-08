@@ -19,7 +19,7 @@ public interface Views {
 	public interface CommandeWithClient extends Commande {
 	}
 
-	public interface CommandeWithDetails extends CommandeWithClient {
+	public interface CommandeWithDetailsAndClient extends CommandeWithClient {
 	}
 
 	public interface CommandeDetail extends Common {
@@ -28,7 +28,7 @@ public interface Views {
 	public interface CommandeDetailWithCommande extends CommandeDetail {
 	}
 
-	public interface CommandeDetailWithProduit extends CommandeDetailWithCommande {
+	public interface CommandeDetailWithProduitAndCommande extends CommandeDetailWithCommande {
 	}
 
 	public interface Commentaire extends Common {
@@ -37,7 +37,7 @@ public interface Views {
 	public interface CommentaireWithProduit extends Commentaire {
 	}
 
-	public interface CommentaireWithClient extends CommentaireWithProduit {
+	public interface CommentaireWithClientAndProduit extends CommentaireWithProduit {
 	}
 
 	public interface Personne extends Common {
@@ -46,10 +46,10 @@ public interface Views {
 	public interface PersonneWithAdresses extends Personne {
 	}
 
-	public interface PersonneWithCommandes extends PersonneWithAdresses {
+	public interface PersonneWithCommandesAndAdresses extends PersonneWithAdresses {
 	}
 
-	public interface PersonneWithProduits extends PersonneWithCommandes {
+	public interface PersonneWithProduitsAndCommandesAndAdresses extends PersonneWithCommandesAndAdresses {
 	}
 
 	public interface Produit extends Common {
@@ -58,13 +58,13 @@ public interface Views {
 	public interface ProduitWithFournisseur extends Produit {
 	}
 
-	public interface ProduitWithDetails extends ProduitWithFournisseur {
+	public interface ProduitWithDetailsAdnFournisseur extends ProduitWithFournisseur {
 	}
 
-	public interface ProduitWithCommentaires extends ProduitWithDetails {
+	public interface ProduitWithCommentairesAndDetailsAdnFournisseur extends ProduitWithDetailsAdnFournisseur {
 	}
 
-	public interface ProduitWithReparateurs extends ProduitWithCommentaires {
+	public interface ProduitWithReparateurs extends ProduitWithCommentairesAndDetailsAdnFournisseur {
 	}
 	
 	public interface Reparateur extends Common {
