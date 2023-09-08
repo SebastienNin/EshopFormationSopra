@@ -43,7 +43,7 @@ public class CommandeApiController {
 		return daoCommande.findById(id).get();
 	}
 	@GetMapping("/{id}/detail")
-	@JsonView(Views.CommandeWithDetailsAndClient.class)
+	@JsonView(Views.CommandeWithDetails.class)
 	public Commande detailById(@PathVariable int id) {
 		return daoCommande.findById(id).get();
 	}

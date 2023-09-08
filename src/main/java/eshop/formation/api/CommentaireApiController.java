@@ -42,7 +42,7 @@ public class CommentaireApiController {
 	public Commentaire findById(@PathVariable int id) {
 		return daoCommentaire.findById(id).get();
 	}
-	@GetMapping("/detail/{id}")
+	@GetMapping("/{id}/detail")
 	@JsonView(Views.CommentaireWithClient.class)
 	public Commentaire detailById(@PathVariable int id) {
 		return daoCommentaire.findById(id).get();

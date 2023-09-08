@@ -48,7 +48,7 @@ public class PersonneApiController {
 		return daoPersonne.findById(id).get();
 	}
 	
-	@GetMapping("/detailproduit/{id}")
+	@GetMapping("/{id}/detail/produit")
 	@JsonView(Views.PersonneWithProduits.class)
 	public Personne detailproduitById(@PathVariable int id) {
 		return daoPersonne.findById(id).get();

@@ -41,7 +41,7 @@ public class Commande {
 	@JsonView(Views.CommandeWithClient.class)
 	private Client client;
 	@OneToMany(mappedBy = "commande", fetch = FetchType.EAGER)
-	@JsonView(Views.CommandeWithDetailsAndClient.class)
+	@JsonView(Views.CommandeWithDetails.class)
 	private List<CommandeDetail> details = new ArrayList<>();
 
 	public Commande() {}

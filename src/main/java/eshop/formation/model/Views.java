@@ -10,7 +10,7 @@ public interface Views {
 	public interface AdresseWithPersonne extends Adresse {
 	}
 	
-	public interface AdresseWithFournisseur extends AdresseWithPersonne {
+	public interface AdresseWithFournisseur extends Adresse {
 	}
 
 	public interface Commande extends Common {
@@ -19,7 +19,7 @@ public interface Views {
 	public interface CommandeWithClient extends Commande {
 	}
 
-	public interface CommandeWithDetailsAndClient extends CommandeWithClient {
+	public interface CommandeWithDetails extends Commande {
 	}
 
 	public interface CommandeDetail extends Common {
@@ -28,7 +28,7 @@ public interface Views {
 	public interface CommandeDetailWithCommande extends CommandeDetail {
 	}
 
-	public interface CommandeDetailWithProduitAndCommande extends CommandeDetailWithCommande {
+	public interface CommandeDetailWithProduit extends CommandeDetail {
 	}
 
 	public interface Commentaire extends Common {
@@ -37,7 +37,7 @@ public interface Views {
 	public interface CommentaireWithProduit extends Commentaire {
 	}
 
-	public interface CommentaireWithClientAndProduit extends CommentaireWithProduit {
+	public interface CommentaireWithClient extends Commentaire {
 	}
 
 	public interface Personne extends Common {
@@ -46,10 +46,10 @@ public interface Views {
 	public interface PersonneWithAdresses extends Personne {
 	}
 
-	public interface PersonneWithCommandesAndAdresses extends PersonneWithAdresses {
+	public interface PersonneWithCommandes extends Personne {
 	}
 
-	public interface PersonneWithProduitsAndCommandesAndAdresses extends PersonneWithCommandesAndAdresses {
+	public interface PersonneWithProduits extends Personne {
 	}
 
 	public interface Produit extends Common {
@@ -58,13 +58,13 @@ public interface Views {
 	public interface ProduitWithFournisseur extends Produit {
 	}
 
-	public interface ProduitWithDetailsAdnFournisseur extends ProduitWithFournisseur {
+	public interface ProduitWithDetails extends Produit {
 	}
 
-	public interface ProduitWithCommentairesAndDetailsAdnFournisseur extends ProduitWithDetailsAdnFournisseur {
+	public interface ProduitWithCommentaires extends Produit {
 	}
 
-	public interface ProduitWithReparateurs extends ProduitWithCommentairesAndDetailsAdnFournisseur {
+	public interface ProduitWithReparateurs extends Produit {
 	}
 	
 	public interface Reparateur extends Common {

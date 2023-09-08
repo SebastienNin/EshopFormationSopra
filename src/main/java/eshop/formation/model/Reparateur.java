@@ -6,6 +6,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -28,7 +29,7 @@ public class Reparateur {
 	private String telephone;
 	@JsonView(Views.Common.class)
 	private String description;
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinColumn(name="reparateurs")
 	@JsonView(Views.ReparateurWithProduits.class)
 	private List<Produit> produitsReparables = new ArrayList<>();

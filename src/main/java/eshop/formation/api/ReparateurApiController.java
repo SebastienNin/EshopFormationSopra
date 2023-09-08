@@ -38,15 +38,15 @@ public class ReparateurApiController {
 	}
 
 	@GetMapping("/{id}")
-	@JsonView(Views.ReparateurWithProduits.class)
+	@JsonView(Views.Reparateur.class)
 	public Reparateur findById(@PathVariable int id) {
 		return daoReparateur.findById(id).get();
 	}
-	/*@GetMapping("/detail/{id}")
-	@JsonView(Views.ReparateurWithOrdinateur.class)
+	@GetMapping("/{id}/detail")
+	@JsonView(Views.ReparateurWithProduits.class)
 	public Reparateur detailById(@PathVariable int id) {
 		return daoReparateur.findById(id).get();
-	}*/
+	}
 	@PostMapping("")
 	//@JsonView(Views.Reparateur.class)
 	public Reparateur create(@Valid @RequestBody Reparateur repararteur, BindingResult result) {

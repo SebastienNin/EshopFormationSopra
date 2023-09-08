@@ -38,21 +38,21 @@ public class ProduitApiController {
 	}
 
 	@GetMapping("/{id}")
-	@JsonView(Views.ProduitWithFournisseur.class)
+	@JsonView(Views.Produit.class)
 	public Produit findById(@PathVariable int id) {
 		return daoProduit.findById(id).get();
 	}
-	@GetMapping("/detail/{id}")
-	@JsonView(Views.ProduitWithDetails.class)
+	@GetMapping("/{id}/detail")
+	@JsonView(Views.ProduitWithFournisseur.class)
 	public Produit detailById(@PathVariable int id) {
 		return daoProduit.findById(id).get();
 	}
-	@GetMapping("/detailcommentaire/{id}")
+	@GetMapping("/{id}/detail/commentaire")
 	@JsonView(Views.ProduitWithCommentaires.class)
 	public Produit detailcommentaireById(@PathVariable int id) {
 		return daoProduit.findById(id).get();
 	}
-	@GetMapping("/detailrepararteur/{id}")
+	@GetMapping("/{id}/detail/reparateur")
 	@JsonView(Views.ProduitWithReparateurs.class)
 	public Produit detailsrepararteurById(@PathVariable int id) {
 		return daoProduit.findById(id).get();

@@ -6,6 +6,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -38,13 +39,13 @@ public class Produit {
 	@ManyToOne
 	@JsonView(Views.ProduitWithFournisseur.class)
 	private Fournisseur fournisseur;
-	@OneToMany(mappedBy="produit")
+	@OneToMany(mappedBy="produit", fetch = FetchType.EAGER)
 	@JsonView(Views.ProduitWithDetails.class)
 	private List<CommandeDetail> details = new ArrayList<>();
-	@OneToMany(mappedBy="produit")
+	@OneToMany(mappedBy="produit", fetch = FetchType.EAGER)
 	@JsonView(Views.ProduitWithCommentaires.class)
 	private List<Commentaire> commentaires = new ArrayList<>();
-	@ManyToMany(mappedBy="produitsReparables")
+	@ManyToMany(mappedBy="produitsReparables", fetch = FetchType.EAGER)
 	@JsonView(Views.ProduitWithReparateurs.class)
 	private List<Reparateur> reparateurs = new ArrayList<>();
 
