@@ -41,11 +41,11 @@ public class AdresseApiController {
 	public Adresse findById(@PathVariable int id) {
 		return daoAdresse.findById(id).get();
 	}
-	/*@GetMapping("/detail/{id}")
-	@JsonView(Views.AdresseWithOrdinateur.class)
+	@GetMapping("/{id}/detail")
+	@JsonView(Views.AdresseWithFournisseur.class)
 	public Adresse detailById(@PathVariable int id) {
 		return daoAdresse.findById(id).get();
-	}*/
+	}
 	@PostMapping("")
 	//@JsonView(Views.Adresse.class)
 	public Adresse create(@Valid @RequestBody Adresse adresse, BindingResult result) {

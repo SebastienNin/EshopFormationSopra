@@ -42,11 +42,12 @@ public class PersonneApiController {
 		return daoPersonne.findById(id).get();
 	}
 
-	@GetMapping("/detail/{id}")
+	@GetMapping("/{id}/detail")
 	@JsonView(Views.PersonneWithCommandes.class)
 	public Personne detailById(@PathVariable int id) {
 		return daoPersonne.findById(id).get();
 	}
+	
 	@GetMapping("/detailproduit/{id}")
 	@JsonView(Views.PersonneWithProduits.class)
 	public Personne detailproduitById(@PathVariable int id) {

@@ -34,7 +34,7 @@ public class Adresse {
 	@JoinColumn(name="client")
 	private Client client;
 	@ManyToMany
-	@JsonView(Views.AdresseWithPersonne.class)
+	@JsonView(Views.AdresseWithFournisseur.class)
 	private List<Fournisseur> fournisseurs = new ArrayList<>();
 
 	public Adresse() {}
